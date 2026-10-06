@@ -1,17 +1,15 @@
-# Conventions et règles pour les agents · Cap Web
+# Conventions de Cap Web
 
-Ce document définit les conventions d'architecture et les interdictions strictes que tout agent IA ou développeur doit impérativement respecter sur ce projet.
+## Nommage
 
-## 1. Conventions de nommage
+- Une fonction porte un verbe qui décrit ce qu’elle fait, par exemple `validateMessage` ou `replyTo`.
+- Une constante porte un nom explicite et en majuscules si elle représente une valeur fixe ou un paramètre global, par exemple `LIMITE`.
+- Un fichier porte un nom court et explicite, selon son rôle : `brain.js` pour la logique métier, `app.js` pour le branchement de l’interface et `view.js` pour l’affichage.
+- Un message de commit suit le format `type: description`, par exemple `docs: README`, `fix: limite`, ou `feat: réponse assistante`.
 
-- **Fonctions** : Toujours préfixées par un verbe d'action en anglais ou en français clair décrivant fidèlement son rôle (ex. `validateMessage`, `replyTo`, `renderMessages`).
-- **Constantes** : Écrites en `MAJUSCULES_SNAKE_CASE` pour les configurations globales invariables (ex. `LIMITE`, `CLE`), ou en `camelCase` explicite pour les dictionnaires locaux (ex. `listeMots`, `REPONSES`).
-- **Fichiers** : Tout en minuscules, séparés par des tirets ou points selon le rôle (ex. `brain.js`, `brain.contrat.test.js`).
-- **Messages de commit Git** : Commits sémantiques obligatoires avec préfixe standardisé (`fix:`, `feat:`, `docs:`, `test:`, `refactor:`) suivi d'une description concise à l'impératif sans point final.
+## Interdits
 
-## 2. Interdictions formelles (Ne jamais enfreindre)
-
-1. **Interdiction de modifier les tests de contrat** : Ne modifie jamais les fichiers situés dans `tests/contrat/` ni `browser/contrat.spec.js`. Le contrat est la spécification immuable du client.
-2. **Interdiction de modifier les réglages personnels** : Ne modifie jamais `cahier-personnel.json`. Si une incohérence survient, alerte l'utilisateur sans changer le fichier.
-3. **Interdiction d'injecter du HTML brut (`innerHTML`)** : Ne jamais utiliser `innerHTML`, `outerHTML` ou `insertAdjacentHTML` dans `view.js` ou `app.js`. L'affichage de contenu dynamique se fait exclusivement via `textContent` et des nœuds DOM natifs pour prévenir les failles XSS.
-4. **Interdiction d'ajouter des dépendances sans accord** : Ne jamais installer de bibliothèque npm externe hors de `dependances-autorisees.json`. Le projet doit fonctionner en Vanilla JavaScript pur.
+- Ne JAMAIS modifier `tests/contrat/` ni `cahier-personnel.json` 
+- Ne pas écrire de HTML avec `innerHTML` : le texte doit rester du texte.
+- Ne pas mettre la logique métier dans `view.js` ; les règles de décision doivent rester dans `brain.js`.
+- Ne jamais modifier de fichier sans accord au préalable.
