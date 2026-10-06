@@ -5,8 +5,8 @@
 export const LIMITE = 200;
 
 const MOTS = {
-  festival: '',
-  programmation: ''
+  festival: 'Un festival est un rendez-vous festif et culturel.',
+  programme: 'La programmation d\'un festival liste les événements.'
 };
 
 const liste = Object.keys(MOTS).map((mot) => `« ${mot} »`).join(' et ');
