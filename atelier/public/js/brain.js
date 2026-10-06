@@ -9,11 +9,11 @@ const MOTS = {
   programme: 'La programmation d\'un festival liste les événements.'
 };
 
-const liste = Object.keys(MOTS).map((mot) => `« ${mot} »`).join(' et ');
+const listeMots = Object.keys(MOTS).map((mot) => `« ${mot} »`).join(' et ');
 
 const REPONSES = {
   salut: 'Bonjour ! Je suis Cap Web, un assistant à règles. Écrivez « aide » pour voir ce que je sais faire.',
-  aide: `Je connais « salut », « aide », « test », et deux mots à moi : ${liste}.`,
+  aide: `Je connais « salut », « aide », « test », et deux mots à moi : ${listeMots}.`,
   test: 'Test bien reçu : mes règles fonctionnent.',
   repli: 'Je ne comprends pas cette demande. Écrivez « aide » pour voir ce que je sais faire.'
 };
