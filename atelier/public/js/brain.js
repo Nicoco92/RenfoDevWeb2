@@ -9,11 +9,11 @@ const MOTS = {
     musique: 'La musique est un art qui utilise le son et le silence.'
 };
 
-const liste = Object.keys(MOTS).map((mot) => `« ${mot} »`).join(' et ');
+const listeMots = Object.keys(MOTS).map((mot) => `« ${mot} »`).join(' et ');
 
 const REPONSES = {
     salut: 'Bonjour ! Je suis Cap Web, un assistant à règles. Écrivez « aide » pour voir ce que je sais faire.',
-    aide: `Je connais « salut », « aide », « test », et deux mots à moi : ${liste}.`,
+    aide: `Je connais « salut », « aide », « test », et deux mots à moi : ${listeMots}.`,
     test: 'Test bien reçu : mes règles fonctionnent.'
 };
 
