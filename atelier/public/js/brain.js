@@ -49,3 +49,16 @@ export function replyTo(message) {
   // Message inconnu : réponse de repli distincte.
   return REPONSES.repli;
 }
+export function synonyme(message) {
+  if (typeof message !== 'string') {
+    return '';
+  }
+  const texte = message.trim().toLowerCase();
+  if (texte === 'coucou' || texte === 'hello' || texte === 'bonsoir') {
+    return 'salut';
+  }
+  if (texte === 'help' || texte === 'sos') {
+    return 'aide';
+  }
+  return texte;
+}
