@@ -1,5 +1,11 @@
-# Cap Web
+# Cap Web — Assistant Festival de Musique
 
-Ce README est à écrire par votre binôme au round 2, en 3 parties : à quoi sert Cap Web, comment l'installer et le lancer, et les 3 modules de `public/js` avec le rôle de chacun. La fiche est [documenter le projet](../defis/R2-ce-que-voit-l-agent.md).
+Cap Web est un assistant web interactif à base de règles conçu pour orienter et informer les festivaliers sur le Festival de Musique.
+Il fonctionne entièrement côté client sans framework lourd ni dépendance externe, garantissant une exécution rapide, accessible et sécurisée.
+L'application valide rigoureusement les messages saisis, répond aux mots-clés thématiques et conserve l'historique de discussion dans le stockage local.
 
-En attendant, dans ce dossier : `npm start` lance Cap Web sur http://127.0.0.1:3000 (Ctrl+C l'arrête), et `npm test` lance les tests. On ne modifie jamais `tests/contrat/`, `browser/contrat.spec.js` ni `cahier-personnel.json`.
+## Installation et lancement
+
+1. Vérifier la version de Node.js (>= 24.20) :
+   ```bash
+   node --version
