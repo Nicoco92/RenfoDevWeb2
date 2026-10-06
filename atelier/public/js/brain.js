@@ -47,5 +47,5 @@ export function replyTo(message) {
     return MOTS[texte];
   }
   // Message inconnu : on rappelle ce que Cap Web sait faire.
-  return REPONSES.aide;
+  return 'Je ne sais pas encore répondre à cela. Écrivez « aide » pour voir ce que je sais faire.';
 }
