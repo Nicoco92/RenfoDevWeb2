@@ -69,14 +69,26 @@ compteurElt.textContent = `0 / ${LIMITE}`;
 charger();
 renderMessages(historique, liste);
 
-fetch('/version.json', { headers: { accept: 'application/json' } })
-  .then((reponse) => (reponse.ok ? reponse.json() : null))
-  .then((donnees) => {
-    if (donnees && typeof donnees.version === 'string' && versionElt) {
-      versionElt.textContent = `version ${donnees.version}`;
+async function afficherVersion() {
+  try {
+    const reponse = await fetch('/version.json', { headers: { accept: 'application/json' } });
+    if (!reponse.ok) {
+      throw new Error(`HTTP ${reponse.status}`);
     }
-  })
-  .catch(() => {});
+    const donnees = await reponse.json();
+    if (versionElt && typeof donnees.version === 'string') {
+      versionElt.textContent = `version ${donnees.version}`;
+    } else if (versionElt) {
+      versionElt.textContent = 'version indisponible';
+    }
+  } catch {
+    if (versionElt) {
+      versionElt.textContent = 'version indisponible';
+    }
+  }
+}
+
+afficherVersion();
 
 champ.addEventListener('input', () => {
   const longueur = champ.value.length;
