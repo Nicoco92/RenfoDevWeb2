@@ -34,7 +34,7 @@ npm test
 atelier/
 ├── browser/                    # Tests de bout en bout (Playwright)
 │   ├── smoke.spec.js           # Tests de vérification du déploiement
-│   └── web.spec.js             # Tests d'accessibilité et de rendu
+│   └── contrat.spec.js         # Tests d'accessibilité et de rendu
 ├── public/                     # Fichiers statiques servis au navigateur (frontend)
 │   ├── index.html              # Structure HTML du chatbot
 │   ├── styles.css              # Styles CSS (responsive, mobile, dark mode)
@@ -64,10 +64,13 @@ atelier/
 ## Les 3 modules de `public/js`
 
 ### app.js
+
 branche l’interface avec les événements du formulaire, la conversation, le stockage local, la remise à zéro et la limite de caractères.
 
 ### brain.js
+
 contient les règles métier de Cap Web : validation du message, réponses autorisées, mots-clés et limite maximale.
 
 ### view.js
+
 affiche les messages dans la page HTML en distinguant les messages de l’utilisateur et ceux de Cap Web.
