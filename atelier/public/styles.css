@@ -2,8 +2,9 @@
   color-scheme: light;
   --fond: #ffffff;
   --texte: #111111;
-  --accent: #0b5fff;
-  --accent-fonce: #003ecb;
+  --accent: #e71212;
+  --accent-fonce: #a50505;
+  --accent-leger: #ffeeee;
   --bord: #333333;
 
 }
@@ -51,7 +52,7 @@ h2 {
 
 /* Réponses de l'assistant, distinguées des messages de l'utilisateur. */
 #messages li.bot {
-  background: #eef3ff;
+  background: var(--accent-leger);
   border-left: 0.35rem solid var(--accent);
 }
 
@@ -123,8 +124,8 @@ footer {
     color-scheme: dark;
     --fond: #111111;
     --texte: #ffffff;
-    --accent: #3f00bc;
-    --accent-fonce: #460397;
+    --accent: #8700bc;
+    --accent-fonce: #700397;
     --bord: #cccccc;
   }
 }
