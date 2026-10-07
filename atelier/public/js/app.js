@@ -1,5 +1,5 @@
 // Cap Web — câblage : lire le formulaire, mettre à jour l'historique, demander l'affichage.
-import { validateMessage, replyTo, LIMITE } from './brain.js';
+import { LIMITE, replyTo, validateMessage } from './brain.js';
 import { renderMessages } from './view.js';
 
 const formulaire = document.querySelector('#chat-form');
@@ -9,6 +9,7 @@ const statut = document.querySelector('#status');
 const effacer = document.querySelector('#effacer');
 const versionElt = document.querySelector('#version');
 const limiteElt = document.querySelector('#limite');
+const compteurElt = document.querySelector('#compteur');
 
 const CLE = 'capweb.historique';
 const historique = [];
@@ -46,6 +47,7 @@ formulaire.addEventListener('submit', (event) => {
   renderMessages(historique, liste);
   champ.value = '';
   statut.textContent = '';
+  compteurElt.textContent = `0 / ${LIMITE}`;
   champ.focus();
 });
 
@@ -62,6 +64,7 @@ effacer.addEventListener('click', () => {
 // La limite vient de brain.js : un seul endroit à modifier.
 champ.maxLength = LIMITE;
 limiteElt.textContent = String(LIMITE);
+compteurElt.textContent = `0 / ${LIMITE}`;
 
 charger();
 renderMessages(historique, liste);
@@ -74,3 +77,9 @@ fetch('/version.json', { headers: { accept: 'application/json' } })
     }
   })
   .catch(() => {});
+
+champ.addEventListener('input', () => {
+  const longueur = champ.value.length;
+  compteurElt.textContent = `${longueur} / ${LIMITE}`;
+});
+
