@@ -21,6 +21,13 @@ const TYPES = {
   'js/view.js': 'text/javascript; charset=utf-8'
 };
 
+// Conseils renvoyés par l'API.
+const CONSEILS = [
+  'Testez régulièrement votre code avec npm test.',
+  'Pensez à l’accessibilité dès la conception de vos pages.',
+  'Faites des commits petits, clairs et fréquents.'
+];
+
 export function createApp({ publicDir, version = 'dev' } = {}) {
   const serveur = http.createServer((req, res) => {
     traiter(req, res).catch(() => {
@@ -50,6 +57,15 @@ export function createApp({ publicDir, version = 'dev' } = {}) {
       res.end('Non trouvé');
       return;
     }
+    // Route de conseil aléatoire.
+    if (chemin === '/api/conseil') {
+      const conseil = CONSEILS[Math.floor(Math.random() * CONSEILS.length)];
+      const corps = JSON.stringify({ conseil });
+      res.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'content-length': Buffer.byteLength(corps) });
+      res.end(methode === 'HEAD' ? '' : corps);
+      return;
+    }
+
     // Métadonnée de version fournie au démarrage.
     if (chemin === '/version.json') {
       const corps = JSON.stringify({ version });
