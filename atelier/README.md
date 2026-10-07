@@ -28,6 +28,39 @@ Pour lancer les tests, dans le même terminal :
 npm test
 ```
 
+## Arborescence du projet
+
+```text
+atelier/
+├── browser/                    # Tests de bout en bout (Playwright)
+│   ├── smoke.spec.js           # Tests de vérification du déploiement
+│   └── web.spec.js             # Tests d'accessibilité et de rendu
+├── public/                     # Fichiers statiques servis au navigateur (frontend)
+│   ├── index.html              # Structure HTML du chatbot
+│   ├── styles.css              # Styles CSS (responsive, mobile, dark mode)
+│   └── js/                     # Modules JavaScript côté client
+│       ├── app.js              # Câblage des événements, historique et API
+│       ├── brain.js            # Règles métier, validation et réponses
+│       └── view.js             # Rendu sécurisé des messages dans le DOM
+├── scripts/                    # Scripts d'outillage et d'automatisation
+│   ├── build-static.js         # Construction du site statique
+│   ├── check-dependances.js    # Contrôle des dépendances du projet
+│   └── check-tests.js          # Vérification de l'intégrité des tests
+├── server/                     # Serveur HTTP Node.js (backend)
+│   ├── app.js                  # Application HTTP, routes statiques et /api/conseil
+│   └── start.js                # Point d'entrée pour démarrer le serveur
+├── tests/                      # Tests unitaires et d'intégration (node --test)
+│   ├── conseil.test.js         # Test de la route /api/conseil
+│   ├── server.test.js          # Tests des routes HTTP du serveur
+│   ├── synonyme.test.js        # Tests de traitement des synonymes
+│   ├── contrat/                # Tests de contrat d'architecture
+│   └── harnais/                # Tests de validation du harnais
+├── cahier-personnel.json       # Configuration personnalisée (limite, mots)
+├── eslint.config.js            # Configuration du linter ESLint
+├── package.json                # Dépendances et scripts du projet
+└── README.md                   # Documentation du projet
+```
+
 ## Les 3 modules de `public/js`
 
 ### app.js
