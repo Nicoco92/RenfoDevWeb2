@@ -5,6 +5,7 @@
   --accent: #0b5fff;
   --accent-fonce: #003ecb;
   --bord: #333333;
+
 }
 
 * {
@@ -115,4 +116,22 @@ button:hover {
 
 footer {
   font-size: 0.9rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --fond: #111111;
+    --texte: #ffffff;
+    --accent: #3f00bc;
+    --accent-fonce: #460397;
+    --bord: #cccccc;
+  }
+}
+
+@media (max-width: 600px) {
+  button[type="submit"] {
+    width: 100%;
+  }
+    
 }
