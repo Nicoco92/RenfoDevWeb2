@@ -74,3 +74,22 @@ contient les règles métier de Cap Web : validation du message, réponses autor
 ### view.js
 
 affiche les messages dans la page HTML en distinguant les messages de l’utilisateur et ceux de Cap Web.
+
+## Route API : `/api/conseil`
+
+Cap Web expose une route API HTTP permettant d'obtenir des conseils de développement web.
+
+- **Méthode** : `GET` (ou `HEAD`)
+- **URL** : `/api/conseil` (ex. `http://127.0.0.1:3000/api/conseil`)
+- **Format de réponse** : `application/json; charset=utf-8`
+- **Code HTTP** : `200 OK`
+
+### Exemple de réponse JSON
+
+```json
+{
+  "conseil": "Testez régulièrement votre code avec npm test."
+}
+```
+
+Le conseil est choisi aléatoirement parmi un ensemble de conseils prédéfinis. Dans le chatbot, lorsque vous envoyez le message « conseil », Cap Web appelle cette API de manière asynchrone pour afficher la réponse. En cas d'indisponibilité du serveur, un message d'erreur clair est affiché sans bloquer l'interface.
