@@ -6,14 +6,15 @@ export const LIMITE = 380;
 
 const MOTS = {
     cerise: 'Une cerise est un fruit rouge et sucré.',
-    musique: 'La musique est un art qui utilise le son et le silence.'
+    musique: 'La musique est un art qui utilise le son et le silence.',
+    festival: 'Un festival est un événement culturel ou artistique qui se déroule sur plusieurs jours.',
 };
 
 const listeMots = Object.keys(MOTS).map((mot) => `« ${mot} »`).join(' et ');
 
 const REPONSES = {
     salut: 'Bonjour ! Je suis Cap Web, un assistant à règles. Écrivez « aide » pour voir ce que je sais faire.',
-    aide: `Je connais « salut », « aide », « test », et deux mots à moi : ${listeMots}.`,
+    aide: `Je connais « salut », « aide », « test », et ${Object.keys(MOTS).length} mots à moi : ${listeMots}.`,
     test: 'Test bien reçu : mes règles fonctionnent.'
 };
 
