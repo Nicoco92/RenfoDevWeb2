@@ -83,3 +83,10 @@ champ.addEventListener('input', () => {
   compteurElt.textContent = `${longueur} / ${LIMITE}`;
 });
 
+// Raccourci clavier : Ctrl+Entrée pour envoyer le formulaire.
+champ.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && event.ctrlKey) {
+    event.preventDefault();
+    formulaire.requestSubmit();
+  }
+});
